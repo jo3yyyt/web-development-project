@@ -1,0 +1,29 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;  /* Changed from absolute to fixed to cover the viewport even when scrolling */
+  top: 0; left: 0;
+  height: 100vh;  /* Cover the full viewport height */
+  width: 100vw;  /* Cover the full viewport width */
+  background: url('background.jpg') no-repeat center center;
+  background-size: cover;
+  animation: slide 60s infinite;
+  z-index: -1;  /* Ensures the overlay does not interfere with content */
+  pointer-events: none;  /* Allows clicks to pass through */
+}
+
+@keyframes slide {
+  0%, 100% { background-image: url('background.jpg'); }
+  15% { background-image: url('background2.png'); }
+  30% { background-image: url('background3.jpeg'); }
+  45% { background-image: url('background4.jpg'); }
+  60% { background-image: url('background5.jpg'); }
+  75% { background-image: url('background6.png'); }
+  88% { background-image: url('background7.jpg'); }
+}
